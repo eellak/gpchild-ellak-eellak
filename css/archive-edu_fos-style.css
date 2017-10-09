@@ -1,0 +1,140 @@
+/**
+* variables:
+* default-orange: #f58220;
+* border-title-orange: #c97421;
+**/
+
+.ellak-edu_fos.fos-category-select{
+    font-size: 12px;
+}
+
+.ellak-edu_fos.title.text{
+    font-size: 34px;
+    font-weight: 300;
+}
+
+.ellak-edu_fos.sort-controls{
+    display: block;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+
+.ellak-edu_fos.sort-controls label{
+    width: 120px;
+    display: inline-block;
+}
+
+.ellak-edu_fos.sort-controls.filter-submit, .ellak-edu_fos.fos-query-details.padding-div{
+    font-size: 14px;
+}
+
+.ellak-edu_fos.fos-query-details.padding-div{
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+
+.ellak-soon-available{
+    font-size: 11;
+    color: #cccccc;
+    font-style: italic;
+}
+
+.ellak-edu_fos.ellak-disabled{
+    pointer-events: none;
+    cursor: default;
+    font-style: italic;
+}
+
+.ellak-edu_fos.ellak-disabled .text{
+    color: grey;
+}
+
+.ellak-edu_fos.fos-entry-set.main-wrapper{
+    margin-top: 17px;
+}
+
+.ellak-edu_fos.fos-entry.main-wrapper{
+    position: relative;
+    margin-top: 6px;
+    margin-bottom: 4px;
+/*    margin-left: 20px;*/
+}
+
+.ellak-edu_fos.fos-entry.title-text-wrapper{
+    background-color: #f58220;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: #c97421;
+}
+.ellak-edu_fos.fos-entry.title-text{
+    color: white;
+    font-weight: 600;
+    font-style: oblique;
+    margin-left: 10px;
+}
+
+.ellak-edu_fos.fos-entry.details-container{
+/*    border-color: orange;
+    border-style: solid;
+    border-radius: 6px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-width: 1px;
+    border-top-color: rgba(0, 0, 0, 0);
+    margin-top: -11px;*/
+    z-index: -9999;
+}
+
+.ellak-edu_fos.fos-entry.details-wrapper{
+    /*margin-top: 10px;*/
+    background-color: #fff581;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.ellak-edu_fos.fos-entry.details-entry{
+    color: #395439;
+    margin-left: 6px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.ellak-edu_fos.fos-entry.details-label{
+    color: #81551B;
+}
+
+.ellak-edu_fos.fos-entry.details-value{
+    color: #544739;
+    font-weight: 500;
+}
+
+.ellak-edu_fos.paging-buttons.ellak-container{
+    position: relative;
+    
+}
+
+.ellak-edu_fos.paging-buttons.ellak-main-wrapper{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ellak-edu_fos.paging-buttons.ellak-button, .ellak-edu_fos.paging-buttons.ellak-button > a{
+    display: inline-block;
+}
+
+.ellak-edu_fos.download-csv{
+    position: relative;
+}
+
+.ellak-edu_fos.download-csv span{
+    display: block;
+    text-align: right;
+}
+
+.ellak-edu_fos.download-csv-text{
+    text-align: right;
+}
