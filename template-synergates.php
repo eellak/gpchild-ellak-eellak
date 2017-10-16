@@ -35,7 +35,7 @@ if($synergates_query->have_posts()):
 	$synergates_query->the_post();
 ?>
 	<div class="row associate-row">
-		<div class='col-md-3 col-xs-12 associate-photo'>
+		<div class='col-md-3 col-xs-6 associate-photo'>
 			<div class="photo-container">
 				<div class="photo-frame thumbnail">
 					<div class="centered" style="background-image: url('<?php the_field('associate_photo')?>')">
