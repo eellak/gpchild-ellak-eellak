@@ -87,18 +87,18 @@ if(!function_exists('archive_edu_fos_style')){
 }
 add_action('wp_enqueue_scripts', 'archive_edu_fos_style');
 
-// register the edu_quest custom post type
-if (!function_exists('register_edu_quest_post_type')){
-	function register_edu_quest_post_type(){
+// register the associates custom post type
+if (!function_exists('register_synergates_post_type')){
+	function register_synergates_post_type(){
 		$labels=array(
-				'name' => 'FOSS in Unis',
-				'singular_name' => 'FOSS in Unis',
-				'add_new'=>'Add New',
-				'edit_item'=>'Edit Item',
-				'view_item'=>'View Item'
+				'name' => 'Συνεργάτες',
+				'singular_name' => 'Συνεργάτης',
+				'add_new'=>'Προσθήκη Συνεργάτη',
+				'edit_item'=>'Επεξεργασία Συνεργάτη',
+				'view_item'=>'Επισκόπηση Συνεργάτη'
 				);
 		$args=array(
-				'supports' => array('title', 'custom-fields'),
+				'supports' => array('title', 'editor', 'custom-fields'),
 				'label' => 'Quest Entries',
 				'labels' => $labels,
 				'public' => true,
@@ -110,13 +110,10 @@ if (!function_exists('register_edu_quest_post_type')){
 				'publicly_queryable' => true,
 				'show_in_rest' => true
 		);
-		
-		if (get_current_blog_id()===11){
-			register_post_type('edu_quest_post_type', $args);
-		}
+		register_post_type('synergates_post_type', $args);
 	}
 }
-add_action('init', 'register_edu_quest_post_type');
+add_action('init', 'register_synergates_post_type');
 
 // add clearfix class in the header container
 add_filter( 'generate_inside_header_class', 'ellak_inside_header_classes' );
@@ -180,45 +177,45 @@ remove_filter( 'wprss_pagination', 'wprss_pagination_links' );
 // admin-screen for the posts listing.
 add_filter('bulk_actions-edit-edu_quest_post_type', 'register_my_bulk_actions');
 
-if(!function_exists('register_my_bulk_actions')){
-	function register_my_bulk_actions($bulk_actions){
-		$bulk_actions['publish_edu_quest_entry'] = 'Αμεση Δημοσιευση Καταχωρησης';
-		return $bulk_actions;
-	}
-}
+//if(!function_exists('register_my_bulk_actions')){
+//	function register_my_bulk_actions($bulk_actions){
+//		$bulk_actions['publish_edu_quest_entry'] = 'Αμεση Δημοσιευση Καταχωρησης';
+//		return $bulk_actions;
+//	}
+//}
 
 // handle the bulk publish option box
 
-add_filter('handle_bulk_actions-edit-edu_quest_post_type', 'handle_bulk_publish_edu_quest_post_type', 10, 3);
-if(!function_exists('handle_bulk_publish_edu_quest_post_type')){
-	function handle_bulk_publish_edu_quest_post_type($redirect_to, $doaction, $post_ids){
-		if($doaction=='publish_edu_quest_entry'){
-			$error_var=array(); //the errors array
-			$return_successful=true; //returned zero if zero occurs as return value from one post update execution
-			foreach ($post_ids as $post_id){
-				$update_array=array('ID' => $post_id, 'post_status' => 'publish');
-				$return_successful=wp_update_post($update_array, $error_var);
-			}
-			$redirect_to=add_query_arg('bulk_publish_successful', $return_successful, $redirect_to);
-		}
-	}
-}
+//add_filter('handle_bulk_actions-edit-edu_quest_post_type', 'handle_bulk_publish_edu_quest_post_type', 10, 3);
+//if(!function_exists('handle_bulk_publish_edu_quest_post_type')){
+//	function handle_bulk_publish_edu_quest_post_type($redirect_to, $doaction, $post_ids){
+//		if($doaction=='publish_edu_quest_entry'){
+//			$error_var=array(); //the errors array
+//			$return_successful=true; //returned zero if zero occurs as return value from one post update execution
+//			foreach ($post_ids as $post_id){
+//				$update_array=array('ID' => $post_id, 'post_status' => 'publish');
+//				$return_successful=wp_update_post($update_array, $error_var);
+//			}
+//			$redirect_to=add_query_arg('bulk_publish_successful', $return_successful, $redirect_to);
+//		}
+//	}
+//}
 
 // notify the user if the publishing was successful
-add_action( 'admin_notices', 'edu_quest_bulk_update_admin_notice' );
-function edu_quest_bulk_update_admin_notice() {
-  if ( ! empty( $_REQUEST['bulk_publish_successful'] ) ) {
-    $publish_successful = intval( $_REQUEST['bulk_publish_successful'] );
-    echo '<div id="message" class="updated fade">';
-		if($publish_successful){
-			echo 'Τα επιλεγμένα posts δημοσιεύτηκαν επιτυχώς.';
-		}
-		else{
-			echo 'Η δημοσίευση απέτυχε. Παρακαλώ, προσπαθήστε εκ νέου.';
-		}
-		echo '</div>';
-  }
-}
+//add_action( 'admin_notices', 'edu_quest_bulk_update_admin_notice' );
+//function edu_quest_bulk_update_admin_notice() {
+//  if ( ! empty( $_REQUEST['bulk_publish_successful'] ) ) {
+//    $publish_successful = intval( $_REQUEST['bulk_publish_successful'] );
+//    echo '<div id="message" class="updated fade">';
+//		if($publish_successful){
+//			echo 'Τα επιλεγμένα posts δημοσιεύτηκαν επιτυχώς.';
+//		}
+//		else{
+//			echo 'Η δημοσίευση απέτυχε. Παρακαλώ, προσπαθήστε εκ νέου.';
+//		}
+//		echo '</div>';
+//  }
+//}
 
 
 
@@ -294,12 +291,14 @@ if (!function_exists('edu_quest_custom_columns')) {
 
 
 /* Include the diadose_bar plugin */
-add_action( 'generate_before_header', 'load_diadose_bar' );
-function load_diadose_bar(){
-    if(function_exists('diadose_bar')){
-        diadose_bar();
-    }
-}
+//if(!function_exists('load_diadose_bar')){
+//	add_action( 'generate_before_header', 'load_diadose_bar' );
+//	function load_diadose_bar(){
+//		if(function_exists('diadose_bar')){
+//				diadose_bar();
+//		}
+//	}
+//}
 
 // Add to the admin_init action hook
 //add_filter('current_screen', 'my_current_screen' );

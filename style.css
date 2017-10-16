@@ -339,3 +339,79 @@ display: none;
 }
 
 
+/*
+STYLES FOR SYNERGATES PAGE TEMPLATE
+*/
+.page-template-template-synergates .page-header-image {
+  display: none;
+}
+.page-template-template-synergates .row.page-title > div {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 40px;
+  color: #686868;
+}
+.page-template-template-synergates .associates-ext-container {
+  background-color: white;
+  width: 100%;
+  /*		margin-top: 50px;
+  		margin-bottom: 50px;*/
+}
+.page-template-template-synergates .associate-row {
+  margin-bottom: 30px;
+}
+.page-template-template-synergates .associates-ext-container .photo-container {
+  border: 1px solid #c9c9c9;
+  position: relative;
+  width: 100%;
+  /*height: 260px;*/
+  padding-top: 100%;
+}
+.page-template-template-synergates .associates-ext-container .photo-frame.thumbnail {
+  /*max-height: 350px;*/
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3px;
+}
+.page-template-template-synergates .associates-ext-container .photo-container .centered {
+  /*		position: absolute;
+  		top: 0;
+  		left: 0;*/
+  height: 100%;
+  width: 100%;
+  /*transform: translate(50%, 50%);*/
+  margin-right: auto;
+  background-size: cover;
+  background-position: center center;
+}
+.page-template-template-synergates .associates-ext-container .photo-container img {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  object-fit: cover;
+}
+.page-template-template-synergates .associates-ext-container .associate-content .associate-name {
+  font-size: 30px;
+  text-indent: .5em;
+  letter-spacing: .2px;
+  font-weight: bold;
+  color: #686868;
+  margin-bottom: 20px;
+}
+.page-template-template-synergates .associates-ext-container .associate-content .associate-job-title {
+  font-size: 13px;
+  font-style: oblique;
+  color: #686868;
+  padding-bottom: 6px;
+}
+.page-template-template-synergates .associates-ext-container .associate-content .associate-bio {
+  font-size: 17px;
+  line-height: 1.5;
+  color: #262626;
+}
